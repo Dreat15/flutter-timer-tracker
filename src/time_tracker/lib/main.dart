@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:time_tracker/overview_view.dart';
+import 'days_view.dart';
 
 void main() {
   runApp(const MainApp());
@@ -29,8 +31,8 @@ class _BottomNavigationBarExampleState
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    FirstRoute(),
-    SecondRoute(),
+    DaysViewRoute(),
+    OverviewRoute(),
   ];
 
   void _onItemTapped(int index) {
@@ -68,70 +70,7 @@ class _BottomNavigationBarExampleState
   }
 }
 
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('August'), centerTitle: true,
-        leading: GestureDetector(
-        onTap: () { /* Write listener code here */ },
-        child: const Icon(
-        Icons.arrow_back,  // add custom icons also
-            ),
-          ),
-          actions: <Widget>[
-    Padding(
-      padding: const EdgeInsets.only(right: 20.0),
-      child: GestureDetector(
-        onTap: () {},
-        child: const Icon(
-          Icons.arrow_forward,
-          size: 26.0,
-        ),
-      )
-    ),
-  ],
-      ),
-      
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open route'),
-          onPressed: () {
-            // Navigate to second route when tapped.
-          },
-        ),
-      ),
-    );
-  }
-}
 
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Route'),
-        leading: GestureDetector(
-        onTap: () { /* Write listener code here */ },
-        child: const Icon(
-        Icons.menu,  // add custom icons also
-            ),
-          ),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // Navigate back to first route when tapped.
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
 
